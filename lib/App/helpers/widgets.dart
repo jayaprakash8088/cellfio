@@ -32,3 +32,17 @@ Widget lightBGImage(BuildContext context){
     ],
   );
 }
+Widget noAccountUI(){
+  return Text.rich(
+    TextSpan(
+      children: [
+        TextSpan(text: noAccount),
+        TextSpan(
+          text: registerTitle,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        const TextSpan(text: ')'),
+      ],
+    ),
+  );
+}

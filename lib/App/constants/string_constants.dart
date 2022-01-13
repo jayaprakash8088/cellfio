@@ -26,3 +26,5 @@ String enterPin='Please enter the PIN you received to your email username@gmail.
 String notReceivedPin='Not received the PIN? ';
 String resend='Resend';
 String validatePin='Validate PIN';
+String noAccount='(Do not have account? ';
+

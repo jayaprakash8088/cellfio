@@ -37,13 +37,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
           lightBGImage(context),
           Scaffold(
             backgroundColor: transparent,
-            body: Container(
-              height: double.infinity,
-              child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  physics: const ScrollPhysics(),
-                  child: verificationUI(loginNotifier)),
-            ),
+            body: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                physics: const ScrollPhysics(),
+                child: verificationUI(loginNotifier)),
           )
         ],
     );

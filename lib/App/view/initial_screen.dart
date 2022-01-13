@@ -4,6 +4,7 @@ import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/utils/app_config.dart';
 import 'package:cellfio/App/utils/assets.dart';
 import 'package:cellfio/App/utils/font_size.dart';
+import 'package:cellfio/App/view/login_screen.dart';
 import 'package:cellfio/App/view/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -146,7 +147,8 @@ class _InitalScreenState extends State<InitalScreen> {
   }
 
   void moveToNextScreen(num i) {
-    dynamic route=i==1?null:MaterialPageRoute(builder:(context)=>RegisterScreen());
+    dynamic route=i==1?MaterialPageRoute(builder: (context)=>LoginScreen())
+        :MaterialPageRoute(builder:(context)=>RegisterScreen());
     Navigator.push(context, route);
   }
 }
