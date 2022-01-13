@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       padding: EdgeInsets.all(FontSize.size20),
       child: Column(
         children: [
-          cellfioAppBar(registerTitle, context),
+          cellfioAppBar(registerTitle, context,true),
           alreadyHaveAccount(),
           registerButtons(1),
           SizedBox(
@@ -241,7 +241,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   registerButton(LoginNotifier loginNotifier) {
     return GestureDetector(
       onTap: () {
-        loginNotifier.validate(context);
+        loginNotifier.proceedRegister(context);
       },
       child: Padding(
         padding: EdgeInsets.only(top: FontSize.size10, bottom: FontSize.size10),

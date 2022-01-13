@@ -4,12 +4,15 @@ import 'package:cellfio/App/utils/font_size.dart';
 import 'package:flutter/material.dart';
 
 
-Widget cellfioAppBar(String title,BuildContext context){
+Widget cellfioAppBar(String title,BuildContext context,bool backPress){
   return Row(
     children: [
-    GestureDetector(
-        onTap: (){Navigator.pop(context);},
-        child: Icon(Icons.keyboard_backspace, color: black, size: FontSize.size24,)),
+    Visibility(
+      visible: backPress,
+      child: GestureDetector(
+          onTap: (){Navigator.pop(context);},
+          child: Icon(Icons.keyboard_backspace, color: black, size: FontSize.size24,)),
+    ),
       Expanded(
         child: Center(
           child: Text(title,
