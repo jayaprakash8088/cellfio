@@ -192,7 +192,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fillColor: white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                  borderSide: BorderSide.none,
                 ),
                 filled: true,
                 counterText: '',

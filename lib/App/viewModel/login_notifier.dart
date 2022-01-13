@@ -1,3 +1,4 @@
+import 'package:cellfio/App/constants/string_constants.dart';
 import 'package:cellfio/App/utils/app_config.dart';
 import 'package:flutter/material.dart';
 
@@ -11,21 +12,51 @@ class LoginNotifier with ChangeNotifier{
   //password text
   TextEditingController password=TextEditingController();
   // validateEmail
-  String validateEmail(String? value) {
+  bool validateEmail(String? value) {
     String pattern =
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
         r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
         r"{0,253}[a-zA-Z0-9])?)*$";
     RegExp regex = RegExp(pattern);
     if (value == null || value.isEmpty || !regex.hasMatch(value)) {
-      return 'Enter a valid email address';
+      return false;
     } else {
-      return '';
+      return true;
     }
   }
   validate(BuildContext context){
-    if(firstName.text.trim().isEmpty){
-      return AppConfig.raiseToast('Enter FirstName');
+   if(checkFirstName()){
+     if(email.text.trim().isEmpty){
+       return AppConfig.raiseToast(enterEmail);
+     }else{
+     checkEmail();}
+   }else{
+     return AppConfig.raiseToast(enterFirstName);
+   }
+}
+
+  bool checkFirstName() {
+    if(firstName.text.trim().isEmpty||lastName.text.trim().isEmpty){
+      return false;
+    }else {
+      return true;
     }
   }
-}
+  dynamic checkEmail(){
+    if(validateEmail(email.text)){
+      checkPassword();
+    }else{
+      return AppConfig.raiseToast(checkMail);
+    }
+  }
+  checkPassword(){
+    if(password.text.isEmpty||password.text.length<=6){
+      return AppConfig.raiseToast(enterPassword);
+    }
+    else{
+      proceedRegister();
+    }
+  }
+
+  void proceedRegister() {}
+  }
