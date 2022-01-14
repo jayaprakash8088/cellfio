@@ -4,6 +4,7 @@ import 'package:cellfio/App/helpers/widgets.dart';
 import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/utils/app_config.dart';
 import 'package:cellfio/App/utils/font_size.dart';
+import 'package:cellfio/App/view/set_password.dart';
 import 'package:cellfio/App/viewModel/login_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -127,7 +128,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
   validatePinUI() {
     return GestureDetector(
       onTap: () {
-        // loginNotifier.proceedRegister(context);
+        dynamic route=widget.forReset?MaterialPageRoute(builder: (context)=>SetPassword()):null;
+        Navigator.push(context, route);
       },
       child: Padding(
         padding: EdgeInsets.only(
