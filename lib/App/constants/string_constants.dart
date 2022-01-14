@@ -22,6 +22,7 @@ String enterLastName='Please enter LastName';
 String enterPassword='Please enter Password';
 String enterEmail='Please enter Email';
 String emailVerification='Email Verification';
+String verification='Verification';
 String enterPin='Please enter the PIN you received to your email username@gmail.com';
 String notReceivedPin='Not received the PIN? ';
 String resend='Resend';

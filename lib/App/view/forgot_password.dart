@@ -4,6 +4,7 @@ import 'package:cellfio/App/helpers/widgets.dart';
 import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/utils/app_config.dart';
 import 'package:cellfio/App/utils/font_size.dart';
+import 'package:cellfio/App/view/verification_screen.dart';
 import 'package:cellfio/App/viewModel/login_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -84,7 +85,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   resetBtn(LoginNotifier loginNotifier) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        dynamic route=MaterialPageRoute(builder: (context)=>VerificationScreen(true));
+        Navigator.push(context, route);
+      },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.9,
         height: FontSize.size50,

@@ -74,7 +74,7 @@ class LoginNotifier with ChangeNotifier {
 // navigating to otp verification screen
   void proceedRegister(BuildContext context) {
     dynamic route =
-        MaterialPageRoute(builder: (context) => VerificationScreen());
+        MaterialPageRoute(builder: (context) => VerificationScreen(false));
     Navigator.push(context, route);
   }
 

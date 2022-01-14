@@ -6,11 +6,12 @@ import 'package:cellfio/App/utils/app_config.dart';
 import 'package:cellfio/App/utils/font_size.dart';
 import 'package:cellfio/App/viewModel/login_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:provider/provider.dart';
 
 class VerificationScreen extends StatefulWidget {
-  VerificationScreen() : super();
+  VerificationScreen(this.forReset) : super();
+  bool forReset;
 
   @override
   _VerificationScreenState createState() {
@@ -33,31 +34,38 @@ class _VerificationScreenState extends State<VerificationScreen> {
   Widget build(BuildContext context) {
     LoginNotifier loginNotifier = Provider.of<LoginNotifier>(context);
     return Stack(
-        children: [
-          lightBGImage(context),
-          Scaffold(
-            backgroundColor: transparent,
-            body: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                physics: const ScrollPhysics(),
-                child: verificationUI(loginNotifier)),
-          )
-        ],
+      children: [
+        lightBGImage(context),
+        Scaffold(
+          backgroundColor: transparent,
+          body: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              physics: const ScrollPhysics(),
+              child: verificationUI(loginNotifier)),
+        )
+      ],
     );
   }
 
   verificationUI(LoginNotifier loginNotifier) {
     return Padding(
-      padding:  EdgeInsets.all(FontSize.size15),
+      padding: EdgeInsets.all(FontSize.size15),
       child: Column(
         children: [
-          cellfioAppBar(emailVerification, context,false),
+          cellfioAppBar(widget.forReset ? verification : emailVerification,
+              context, false),
           Padding(
-            padding:  EdgeInsets.all(FontSize.size20),
-            child: Text(enterPin,textAlign: TextAlign.center,style: TextStyle(
-                fontStyle: AppConfig.normal,
-                fontFamily: AppConfig.metropolis,
-            fontSize: FontSize.size13,color: black,fontWeight: FontWeight.w400),),
+            padding: EdgeInsets.all(FontSize.size20),
+            child: Text(
+              enterPin,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontStyle: AppConfig.normal,
+                  fontFamily: AppConfig.metropolis,
+                  fontSize: FontSize.size13,
+                  color: black,
+                  fontWeight: FontWeight.w400),
+            ),
           ),
           notReceivedPinUI(),
           pinCode(loginNotifier),
@@ -72,45 +80,59 @@ class _VerificationScreenState extends State<VerificationScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(notReceivedPin,style: TextStyle(
-            fontStyle: AppConfig.normal,
-            fontFamily: AppConfig.metropolis,
-            fontSize: FontSize.size14,color: black,fontWeight: FontWeight.w500)),
-        Text(resend,style: TextStyle(
-            fontStyle: AppConfig.normal,
-            fontFamily: AppConfig.metropolis,
-            fontSize: FontSize.size14,color: black,fontWeight: FontWeight.w600),)
+        Text(notReceivedPin,
+            style: TextStyle(
+                fontStyle: AppConfig.normal,
+                fontFamily: AppConfig.metropolis,
+                fontSize: FontSize.size14,
+                color: black,
+                fontWeight: FontWeight.w500)),
+        Text(
+          resend,
+          style: TextStyle(
+              fontStyle: AppConfig.normal,
+              fontFamily: AppConfig.metropolis,
+              fontSize: FontSize.size14,
+              color: black,
+              fontWeight: FontWeight.w600),
+        )
       ],
     );
   }
 
   pinCode(LoginNotifier loginNotifier) {
     return Padding(
-      padding: EdgeInsets.only(top: FontSize.size60,
-      left: FontSize.size30,right: FontSize.size30),
-      child: PinCodeTextField(appContext: context, length: 4,
-        onChanged:(pin)=>
-        loginNotifier.onChanged(pin),
+      padding: EdgeInsets.only(
+          top: FontSize.size60, left: FontSize.size30, right: FontSize.size30),
+      child: PinCodeTextField(
+        appContext: context,
+        length: 4,
+        onChanged: (pin) => loginNotifier.onChanged(pin),
         obscureText: false,
         pinTheme: PinTheme(
-          activeColor: black,
-          activeFillColor:black,
-          disabledColor: black,inactiveColor: black,
-          inactiveFillColor: black,selectedColor: black
-        ),
-      keyboardType: TextInputType.number,
-      blinkWhenObscuring: true,
+            activeColor: black,
+            activeFillColor: black,
+            disabledColor: black,
+            inactiveColor: black,
+            inactiveFillColor: black,
+            selectedColor: black),
+        keyboardType: TextInputType.number,
+        blinkWhenObscuring: true,
         cursorColor: Colors.black,
-      onCompleted:(pin)=> loginNotifier.onCompleted(pin),),
+        onCompleted: (pin) => loginNotifier.onCompleted(pin),
+      ),
     );
   }
-  validatePinUI(){
+
+  validatePinUI() {
     return GestureDetector(
       onTap: () {
         // loginNotifier.proceedRegister(context);
       },
       child: Padding(
-        padding: EdgeInsets.only(top:MediaQuery.of(context).size.height*0.5, bottom: FontSize.size10),
+        padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.height * 0.5,
+            bottom: FontSize.size10),
         child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
           height: FontSize.size50,
