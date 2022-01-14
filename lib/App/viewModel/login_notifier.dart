@@ -19,6 +19,8 @@ class LoginNotifier with ChangeNotifier {
   TextEditingController loginMail=TextEditingController();
   //login password
   TextEditingController loginPassword=TextEditingController();
+  // forgot email
+  TextEditingController forgotMail=TextEditingController();
   // validateEmail
   bool validateEmail(String? value) {
     String pattern =

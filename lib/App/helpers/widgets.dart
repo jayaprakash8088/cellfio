@@ -2,6 +2,7 @@ import 'package:cellfio/App/constants/string_constants.dart';
 import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/utils/assets.dart';
 import 'package:cellfio/App/utils/font_size.dart';
+import 'package:cellfio/App/view/register_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -32,19 +33,25 @@ Widget lightBGImage(BuildContext context){
     ],
   );
 }
-Widget noAccountUI(){
-  return Padding(
-    padding:  EdgeInsets.only(top:FontSize.size20),
-    child: Text.rich(
-      TextSpan(
-        children: [
-          TextSpan(text: noAccount),
-          TextSpan(
-            text: registerTitle,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const TextSpan(text: ')'),
-        ],
+Widget noAccountUI(BuildContext context){
+  return GestureDetector(
+    onTap: (){
+      dynamic route=MaterialPageRoute(builder: (context)=>RegisterScreen());
+      Navigator.push(context, route);
+    },
+    child: Padding(
+      padding:  EdgeInsets.only(top:FontSize.size20),
+      child: Text.rich(
+        TextSpan(
+          children: [
+            TextSpan(text: noAccount),
+            TextSpan(
+              text: registerTitle,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const TextSpan(text: ')'),
+          ],
+        ),
       ),
     ),
   );

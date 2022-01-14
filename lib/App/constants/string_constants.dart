@@ -14,7 +14,7 @@ String password = 'Password (min 6 characters required)';
 String agree = 'By registering, you agree to Cellfio’s';
 String terms = 'Terms of Service';
 String privacyPolicy='Privacy Policy.';
-String and='and';
+String and=' and ';
 String or = 'Or';
 String checkMail='Please enter valid email address';
 String enterFirstName='Please enter FirstName and LastName';
@@ -33,4 +33,7 @@ String mail='Email';
 String pass='Password';
 String forgotPassword='Forgot your ';
 String passClick='Password?';
+String forgotPwd='Forgot Password';
+String pinSent='PIN is sent to your email';
+String resetPassword='Reset my Password';
 
