@@ -27,4 +27,10 @@ String notReceivedPin='Not received the PIN? ';
 String resend='Resend';
 String validatePin='Validate PIN';
 String noAccount='(Do not have account? ';
+String loginWithFB='Login with Facebook';
+String loginWithGoogle='Login with Google';
+String mail='Email';
+String pass='Password';
+String forgotPassword='Forgot your ';
+String passClick='Password?';
 

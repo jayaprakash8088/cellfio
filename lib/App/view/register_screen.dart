@@ -60,7 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             height: FontSize.size8,
           ),
           registerButtons(2),
-          border(),
+          border(context),
           textFields(1, loginNotifier),
           textFields(2, loginNotifier),
           textFields(3, loginNotifier),
@@ -132,29 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     // Navigator.push(context, route);
   }
 
-  Widget border() {
-    return Padding(
-      padding: EdgeInsets.only(top: FontSize.size20, bottom: FontSize.size30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-              height: FontSize.size1,
-              color: grey2,
-              width: MediaQuery.of(context).size.width * 0.4),
-          Text(or),
-          const Divider(
-            height: 2.0,
-            color: grey2,
-          ),
-          Container(
-              height: FontSize.size1,
-              color: grey2,
-              width: MediaQuery.of(context).size.width * 0.4),
-        ],
-      ),
-    );
-  }
+
 
   Widget textFields(num i, LoginNotifier loginNotifier) {
     return Column(

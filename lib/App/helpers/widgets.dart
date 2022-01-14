@@ -33,15 +33,42 @@ Widget lightBGImage(BuildContext context){
   );
 }
 Widget noAccountUI(){
-  return Text.rich(
-    TextSpan(
+  return Padding(
+    padding:  EdgeInsets.only(top:FontSize.size20),
+    child: Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(text: noAccount),
+          TextSpan(
+            text: registerTitle,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const TextSpan(text: ')'),
+        ],
+      ),
+    ),
+  );
+}
+// or border
+Widget border(BuildContext context) {
+  return Padding(
+    padding: EdgeInsets.only(top: FontSize.size20, bottom: FontSize.size30),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextSpan(text: noAccount),
-        TextSpan(
-          text: registerTitle,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+        Container(
+            height: FontSize.size1,
+            color: grey2,
+            width: MediaQuery.of(context).size.width * 0.4),
+        Text(or),
+        const Divider(
+          height: 2.0,
+          color: grey2,
         ),
-        const TextSpan(text: ')'),
+        Container(
+            height: FontSize.size1,
+            color: grey2,
+            width: MediaQuery.of(context).size.width * 0.4),
       ],
     ),
   );
