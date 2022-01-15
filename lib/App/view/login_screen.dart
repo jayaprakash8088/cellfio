@@ -5,6 +5,7 @@ import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/utils/app_config.dart';
 import 'package:cellfio/App/utils/font_size.dart';
 import 'package:cellfio/App/view/forgot_password.dart';
+import 'package:cellfio/App/view/home_screen.dart';
 import 'package:cellfio/App/viewModel/login_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -164,7 +165,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   loginBtn(LoginNotifier loginNotifier) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+            (route) => false);
+      },
       child: Padding(
         padding:
             EdgeInsets.only(top: FontSize.size100, bottom: FontSize.size10),

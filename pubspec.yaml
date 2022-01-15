@@ -64,6 +64,11 @@ flutter:
      - images/light_logo.png
      - images/splash_bg.png
      - images/man.png
+     - images/home.png
+     - images/new.png
+     - images/person.png
+     - images/settings.png
+     - images/search.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
