@@ -13,6 +13,3 @@ String following = 'images/following.png';
 String heart = 'images/heart.png';
 String info = 'images/info.png';
 String share = 'images/share.png';
-String img = 'images/img';
-String img1 = 'images/img1';
-String img2 = 'images/img2';
