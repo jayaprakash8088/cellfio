@@ -75,6 +75,9 @@ flutter:
      - images/heart.png
      - images/info.png
      - images/share.png
+     - images/img.png
+     - images/img2.png
+     - images/img1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

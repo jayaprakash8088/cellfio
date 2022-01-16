@@ -21,6 +21,7 @@ class FontSize {
   static double size30 = 30.0;
   static double size35 = 35.0;
   static double size40 = 40.0;
+  static double size45 = 45.0;
   static double size50 = 50.0;
   static double size60 = 60.0;
   static double size70 = 70.0;

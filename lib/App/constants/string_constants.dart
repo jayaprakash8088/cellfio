@@ -39,4 +39,5 @@ String forgotPwd='Forgot Password';
 String pinSent='PIN is sent to your email';
 String resetPassword='Reset my Password';
 String setPassword='Set Password';
+String followingMe='Following me';
 

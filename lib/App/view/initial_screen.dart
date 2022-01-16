@@ -74,40 +74,7 @@ class _InitalScreenState extends State<InitalScreen> {
   }
 
   Widget bottomUI() {
-    return Row(
-      children: [
-        Padding(
-          padding:
-              EdgeInsets.only(left: FontSize.size16, right: FontSize.size8),
-          child: CircleAvatar(
-            child: Image.asset(ellipse),
-          ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Pawel Czerwinski',
-              style: TextStyle(
-                  color: white,fontFamily: AppConfig.metropolis,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal,
-                  fontSize: FontSize.size14,
-                  decoration: TextDecoration.none),
-            ),
-            Text(
-              'Mar 22, 2020',
-              style: TextStyle(
-                  color: grey,fontFamily: AppConfig.metropolis,
-                  fontSize: FontSize.size12,
-                  decoration: TextDecoration.none,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w400),
-            )
-          ],
-        )
-      ],
-    );
+    return profileNameDate(false,false);
   }
 
   buttons() {
