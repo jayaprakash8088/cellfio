@@ -90,11 +90,11 @@ Widget border(BuildContext context) {
 }
 // name , profile img,date Ui
 
-Widget profileNameDate(bool fromDiscover, bool isFollowing) {
+Widget profileNameDate(bool fromDiscover, bool isFollowing,BuildContext ctx) {
   return Row(
     children: [
       fromDiscover
-          ? profileIcon(isFollowing)
+          ? profileIcon(isFollowing,fromDiscover)
           : Padding(
               padding:
                   EdgeInsets.only(left: FontSize.size16, right: FontSize.size8),
@@ -102,46 +102,42 @@ Widget profileNameDate(bool fromDiscover, bool isFollowing) {
                 child: Image.asset(ellipse),
               ),
             ),
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Pawel Czerwinski',
-              style: TextStyle(
-                  color: white,
-                  fontFamily: AppConfig.metropolis,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal,
-                  fontSize: FontSize.size14,
-                  decoration: TextDecoration.none),
-            ),
-            Text(
-              'Mar 22, 2020',
-              style: TextStyle(
-                  color: grey,
-                  fontFamily: AppConfig.metropolis,
-                  fontSize: FontSize.size12,
-                  decoration: TextDecoration.none,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w400),
-            )
-          ],
-        ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Pawel Czerwinski',
+            style: TextStyle(
+                color: white,
+                fontFamily: AppConfig.metropolis,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.normal,
+                fontSize: FontSize.size14,
+                decoration: TextDecoration.none),
+          ),
+          Text(
+            'Mar 22, 2020',
+            style: TextStyle(
+                color: grey,
+                fontFamily: AppConfig.metropolis,
+                fontSize: FontSize.size12,
+                decoration: TextDecoration.none,
+                fontStyle: FontStyle.normal,
+                fontWeight: FontWeight.w400),
+          )
+        ],
       ),
-      Visibility(
-        visible: fromDiscover&&isFollowing,
-        child: Padding(
-          padding:  EdgeInsets.only(right:FontSize.size10),
-          child: Text(followingMe,style: AppConfig.smallFontStyle,),
-        ),
-      )
+      fromDiscover&&isFollowing? Padding(
+        padding:  EdgeInsets.only(right:FontSize.size10,
+        left:MediaQuery.of(ctx).size.width*0.3),
+        child: Text(followingMe,style: AppConfig.smallFontStyle,),
+      ):Container()
     ],
   );
 }
 
 // profile icon
-Widget profileIcon(bool isFollowing) {
+Widget profileIcon(bool isFollowing,bool fromDiscover) {
   return Padding(
     padding: EdgeInsets.only(right: FontSize.size10),
     child: SizedBox(

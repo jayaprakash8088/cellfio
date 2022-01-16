@@ -74,7 +74,7 @@ class _InitalScreenState extends State<InitalScreen> {
   }
 
   Widget bottomUI() {
-    return profileNameDate(false,false);
+    return profileNameDate(false,false,context);
   }
 
   buttons() {

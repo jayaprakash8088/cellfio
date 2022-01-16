@@ -59,7 +59,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
         optionsUI(discoverNotifier),
         Padding(
           padding:  EdgeInsets.only(left: FontSize.size15),
-          child: profileNameDate(true,discoverNotifier.isFollowing),
+          child: profileNameDate(true,discoverNotifier.isFollowing,context),
         ),
         Padding(
           padding:  EdgeInsets.only(left: FontSize.size15,
