@@ -69,6 +69,12 @@ flutter:
      - images/person.png
      - images/settings.png
      - images/search.png
+     - images/comment.png
+     - images/follow.png
+     - images/following.png
+     - images/heart.png
+     - images/info.png
+     - images/share.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -22,8 +22,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   void initState() {
     super.initState();
-    LoginNotifier loginNotifier =
-        Provider.of<LoginNotifier>(context, listen: false);
   }
 
   @override

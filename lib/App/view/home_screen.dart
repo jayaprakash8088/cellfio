@@ -1,4 +1,4 @@
-import 'package:cellfio/App/utils/assets.dart';
+import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/view/discover_screen.dart';
 import 'package:cellfio/App/view/new_screen.dart';
 import 'package:cellfio/App/view/profile_view.dart';
@@ -33,37 +33,41 @@ class _HomeScreenState extends State<HomeScreen> {
         initialIndex: 0,
         child: Scaffold(
           bottomNavigationBar: menu(),
-          body: TabBarView(children:[
+          body: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            children:[
             DiscoverScreen(),
             SearchView(),
             NewScreen(),
             SettingsScreen(),
             ProfileView()
-          ]),
+          ],),
         ),
       );
   }
 
   menu() {
     return const TabBar(
-      labelColor: Colors.white,
-      unselectedLabelColor: Colors.black,
+      labelColor: black,
+      unselectedLabelColor: black,
       indicatorSize: TabBarIndicatorSize.tab,
       tabs: [
         Tab(
-          text: '',
+          icon:Icon(Icons.home_outlined),
         ),
         Tab(
-          icon: Icon(Icons.assignment),
+          icon: Icon(Icons.search),
         ),
         Tab(
-          icon: Icon(Icons.account_balance_wallet),
+          icon: Icon(Icons.add),
         ),
         Tab(
-          icon: Icon(Icons.settings),
-        ),
+    icon: ImageIcon(AssetImage('images/settings.png'),
+      size: 50.0,
+        ),),
         Tab(
-          icon: Icon(Icons.settings),
+          icon: ImageIcon(AssetImage('images/person.png'),
+          size: 50.0,),
         ),
       ],
     );

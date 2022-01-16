@@ -1,12 +1,16 @@
 import 'package:cellfio/App/constants/string_constants.dart';
 import 'package:cellfio/App/view/initial_screen.dart';
+import 'package:cellfio/App/viewModel/discover_notifier.dart';
 import 'package:cellfio/App/viewModel/login_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (context) => LoginNotifier())],
+    providers: [
+      ChangeNotifierProvider(create: (context) => LoginNotifier()),
+      ChangeNotifierProvider(create: (context) => DiscoverNotifier()),
+    ],
   child: const MyApp(),));
 }
 
