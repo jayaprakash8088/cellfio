@@ -44,4 +44,10 @@ String searchText='Search';
 String results='RESULTS';
 String searchAllPhotos='Search all photos';
 String seeMore='SEE MORE';
+String edit='Edit';
+String followText='Follow';
+String setting='Settings';
+String likes='Likes';
+String awards='Awards';
+
 

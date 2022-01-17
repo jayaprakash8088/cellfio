@@ -24,4 +24,10 @@ class AppConfig {
       fontSize: FontSize.size12,
       fontFamily: AppConfig.metropolis,
       fontStyle: FontStyle.normal);
+  //medium style text
+  static TextStyle mediumFontStyle=TextStyle(
+    fontWeight: FontWeight.w500,color: black,
+    fontStyle: FontStyle.normal,fontFamily: metropolis,
+     fontSize: FontSize.size18
+  );
 }

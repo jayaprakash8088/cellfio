@@ -1,3 +1,4 @@
+import 'package:cellfio/App/view/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: Profile(true),
     );
   }
 }

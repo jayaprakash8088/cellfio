@@ -13,3 +13,4 @@ String following = 'images/following.png';
 String heart = 'images/heart.png';
 String info = 'images/info.png';
 String share = 'images/share.png';
+String medal = 'images/medal.png';
