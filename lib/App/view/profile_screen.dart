@@ -39,7 +39,6 @@ class _ProfileState extends State<Profile> {
         scrollDirection: Axis.vertical,
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           children: [
             profileImage(),
             profileName(),
@@ -143,17 +142,20 @@ class _ProfileState extends State<Profile> {
   }
 // gallery view
   galleryView(ProfileNotifier profileNotifier) {
-    return MasonryGridView.count(
-      crossAxisCount: 2,
-      mainAxisSpacing: 4,crossAxisSpacing: 4,
-      itemCount: 4,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        return tile(
-           index,
-           profileNotifier
-        );
-      },
+    return SizedBox(
+      height:500.0,
+      child: MasonryGridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 4,crossAxisSpacing: 4,
+        itemCount: 14,
+        physics: const ScrollPhysics(),
+        itemBuilder: (context, index) {
+          return tile(
+             index,
+             profileNotifier
+          );
+        },
+      ),
     );
   }
 
@@ -210,8 +212,8 @@ class _ProfileState extends State<Profile> {
   tile(int index, ProfileNotifier profileNotifier) {
     return Stack(
       children: [
-        Image.asset('images/img1.png',
-          height:index==0?200:300,),
+      Positioned.fill(child:   Image.asset('images/img1.png',
+        height:index==0?200:300,fit: BoxFit.cover,)),
           Padding(padding: EdgeInsets.only(top:index==0?120:210),
           child: heartIcon(profileNotifier),)
       ],
