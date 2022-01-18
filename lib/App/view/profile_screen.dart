@@ -1,11 +1,14 @@
 import 'package:cellfio/App/constants/string_constants.dart';
+import 'package:cellfio/App/helpers/widgets.dart';
 import 'package:cellfio/App/utils/app_color.dart';
 import 'package:cellfio/App/utils/app_config.dart';
 import 'package:cellfio/App/utils/assets.dart';
 import 'package:cellfio/App/utils/font_size.dart';
+import 'package:cellfio/App/viewModel/profile_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   Profile(this.fromMyProfile) : super();
@@ -30,16 +33,24 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    ProfileNotifier profileNotifier = Provider.of<ProfileNotifier>(context);
     return Scaffold(
-      body: Column(
-        children: [
-          profileImage(),
-          profileName(),
-          city(),
-          buildButtons(),
-          reward(),
-          postsFollows()
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            profileImage(),
+            profileName(),
+            city(),
+            buildButtons(),
+            reward(),
+            postsFollows(),
+            divider(),
+            galleryView(profileNotifier)
+          ],
+        ),
       ),
     );
   }
@@ -130,8 +141,20 @@ class _ProfileState extends State<Profile> {
       return fromMyProfile?edit:followText;
     }else{return setting;}
   }
-
-  galleryView() {
+// gallery view
+  galleryView(ProfileNotifier profileNotifier) {
+    return MasonryGridView.count(
+      crossAxisCount: 2,
+      mainAxisSpacing: 4,crossAxisSpacing: 4,
+      itemCount: 4,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return tile(
+           index,
+           profileNotifier
+        );
+      },
+    );
   }
 
   reward() {
@@ -181,6 +204,38 @@ class _ProfileState extends State<Profile> {
       children: [
         Text('99',style: AppConfig.mediumFontStyle,),
         Text(i==1?posts:i==2?followers:followingText,style: AppConfig.lightGreyStyle,),
+      ],
+    );
+  }
+  tile(int index, ProfileNotifier profileNotifier) {
+    return Stack(
+      children: [
+        Image.asset('images/img1.png',
+          height:index==0?200:300,),
+          Padding(padding: EdgeInsets.only(top:index==0?120:210),
+          child: heartIcon(profileNotifier),)
+      ],
+    );
+  }
+
+  heartIcon(ProfileNotifier profileNotifier) {
+    return Column(
+      children: [
+        Center(
+          child: GestureDetector(
+            onTap: (){
+              profileNotifier.likeClicked();
+            },
+            child:profileNotifier.isLiked?
+            Icon(Icons.favorite_border,color: blackBorder,size: FontSize.size24,):
+            Icon(Icons.favorite,color: red,size: FontSize.size24,),
+          ),
+        ),
+        Padding(
+          padding:  EdgeInsets.only(top:FontSize.size8,
+              bottom: FontSize.size20),
+          child: Text('71k',style: AppConfig.smallFontStyle,),
+        ),
       ],
     );
   }

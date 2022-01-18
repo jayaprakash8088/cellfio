@@ -2,6 +2,7 @@ import 'package:cellfio/App/constants/string_constants.dart';
 import 'package:cellfio/App/view/initial_screen.dart';
 import 'package:cellfio/App/viewModel/discover_notifier.dart';
 import 'package:cellfio/App/viewModel/login_notifier.dart';
+import 'package:cellfio/App/viewModel/profile_notifier.dart';
 import 'package:cellfio/App/viewModel/search_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,7 @@ void main() {
       ChangeNotifierProvider(create: (context) => LoginNotifier()),
       ChangeNotifierProvider(create: (context) => DiscoverNotifier()),
       ChangeNotifierProvider(create: (context) => SearchNotifier()),
+      ChangeNotifierProvider(create: (context) => ProfileNotifier()),
     ],
   child: const MyApp(),));
 }

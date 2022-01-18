@@ -164,3 +164,8 @@ Widget profileIcon(bool isFollowing,bool fromDiscover) {
     ),
   );
 }
+//divider
+Widget divider(){
+  return Padding(padding: EdgeInsets.all(FontSize.size20),
+  child: Divider(height:FontSize.size2,color: grey2,),);
+}
