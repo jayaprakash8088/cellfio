@@ -38,6 +38,7 @@ class _ProfileState extends State<Profile> {
           city(),
           buildButtons(),
           reward(),
+          postsFollows()
         ],
       ),
     );
@@ -103,7 +104,7 @@ class _ProfileState extends State<Profile> {
       onTap: () {
       },
       child: Container(
-        width: FontSize.size150,
+        width: FontSize.size163,
         height: FontSize.size50,
         decoration: BoxDecoration(
             color: blue,
@@ -134,12 +135,16 @@ class _ProfileState extends State<Profile> {
   }
 
   reward() {
-    return Row(
-      children: [
-        likeAndAwards(true),
-        batchIcon(),
-        likeAndAwards(false),
-      ],
+    return Padding(
+      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          likeAndAwards(true),
+          batchIcon(),
+          likeAndAwards(false),
+        ],
+      ),
     );
   }
 
@@ -147,12 +152,36 @@ class _ProfileState extends State<Profile> {
     return Column(
       children: [
         Text(forLike?'1.1k':'4',style:AppConfig.mediumFontStyle,),
-        Text(forLike?likes:awards,style:AppConfig.smallFontStyle,)
+        SizedBox(height: FontSize.size20,),
+        Text(forLike?likes:awards,style:AppConfig.lightGreyStyle,)
       ],
     );
   }
 
   batchIcon() {
     return Image.asset(medal);
+  }
+
+  postsFollows() {
+    return Padding(
+      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size20,top: FontSize.size20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          post(1),
+          post(2),
+          post(3),
+        ],
+      ),
+    );
+  }
+
+  post(int i) {
+    return Column(
+      children: [
+        Text('99',style: AppConfig.mediumFontStyle,),
+        Text(i==1?posts:i==2?followers:followingText,style: AppConfig.lightGreyStyle,),
+      ],
+    );
   }
 }

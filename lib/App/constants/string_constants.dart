@@ -49,5 +49,6 @@ String followText='Follow';
 String setting='Settings';
 String likes='Likes';
 String awards='Awards';
-
-
+String posts='Posts';
+String followers='Followers';
+String followingText='Following';

@@ -30,4 +30,11 @@ class AppConfig {
     fontStyle: FontStyle.normal,fontFamily: metropolis,
      fontSize: FontSize.size18
   );
+  //light grey text
+  static TextStyle lightGreyStyle = TextStyle(
+  fontWeight: FontWeight.w400,
+  color: lightGrey,
+  fontSize: FontSize.size14,
+  fontFamily: AppConfig.metropolis,  fontStyle: FontStyle.normal);
+
 }

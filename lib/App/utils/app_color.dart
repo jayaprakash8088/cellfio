@@ -10,3 +10,4 @@ const Color blue=Color.fromRGBO(2, 50, 219, 1);
 const Color red=Colors.red;
 const Color smallText=Color.fromRGBO(255, 255, 255, 0.8);
 const Color transparent=Colors.transparent;
+const Color lightGrey=Color.fromRGBO(22, 22, 22, 1);
