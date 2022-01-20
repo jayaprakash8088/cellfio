@@ -57,7 +57,7 @@ class _ProfileState extends State<Profile> {
   profileImage() {
     return Center(
       child: Padding(
-        padding:  EdgeInsets.only(top:FontSize.size50),
+        padding: EdgeInsets.only(top: FontSize.size50),
         child: ClipOval(
           child: Image.network(
             'https://www.learningcontainer.com/wp-content/uploads/2020/08/Sample-Small-Image-PNG-file-Download.png',
@@ -71,8 +71,7 @@ class _ProfileState extends State<Profile> {
 
   profileName() {
     return Padding(
-      padding:EdgeInsets.only(top:FontSize.size20,
-      bottom: FontSize.size14),
+      padding: EdgeInsets.only(top: FontSize.size20, bottom: FontSize.size14),
       child: Text(
         'PRAKASH',
         style: TextStyle(
@@ -99,7 +98,7 @@ class _ProfileState extends State<Profile> {
 
   buildButtons() {
     return Padding(
-      padding:  EdgeInsets.only(top:FontSize.size20,bottom:FontSize.size24),
+      padding: EdgeInsets.only(top: FontSize.size20, bottom: FontSize.size24),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -109,10 +108,10 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
+
   buttons(int i) {
     return GestureDetector(
-      onTap: () {
-      },
+      onTap: () {},
       child: Container(
         width: FontSize.size163,
         height: FontSize.size50,
@@ -121,7 +120,7 @@ class _ProfileState extends State<Profile> {
             borderRadius: BorderRadius.all(Radius.circular(FontSize.size6))),
         child: Center(
           child: Text(
-           getButtonText(i,widget.fromMyProfile),
+            getButtonText(i, widget.fromMyProfile),
             style: TextStyle(
                 color: white,
                 decoration: TextDecoration.none,
@@ -136,30 +135,31 @@ class _ProfileState extends State<Profile> {
   }
 
   String getButtonText(int i, bool fromMyProfile) {
-    if(i==1){
-      return fromMyProfile?edit:followText;
-    }else{return setting;}
+    if (i == 1) {
+      return fromMyProfile ? edit : followText;
+    } else {
+      return setting;
+    }
   }
+
 // gallery view
   galleryView(ProfileNotifier profileNotifier) {
     return MasonryGridView.count(
       crossAxisCount: 2,
-      mainAxisSpacing: 4,crossAxisSpacing: 4,
+      mainAxisSpacing: 4,
+      crossAxisSpacing: 4,
       itemCount: 14,
       shrinkWrap: true,
       physics: const ScrollPhysics(),
       itemBuilder: (context, index) {
-        return tile(
-           index,
-           profileNotifier
-        );
+        return tile(index, profileNotifier);
       },
     );
   }
 
   reward() {
     return Padding(
-      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size10),
+      padding: EdgeInsets.only(left: FontSize.size20, right: FontSize.size10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -174,26 +174,41 @@ class _ProfileState extends State<Profile> {
   likeAndAwards(bool forLike) {
     return Column(
       children: [
-        Text(forLike?'1.1k':'4',style:AppConfig.mediumFontStyle,),
-        SizedBox(height: FontSize.size20,),
-        Text(forLike?likes:awards,style:AppConfig.lightGreyStyle,)
+        Text(
+          forLike ? '1.1k' : '4',
+          style: AppConfig.mediumFontStyle,
+        ),
+        SizedBox(
+          height: FontSize.size20,
+        ),
+        Text(
+          forLike ? likes : awards,
+          style: AppConfig.lightGreyStyle,
+        )
       ],
     );
   }
 
   batchIcon() {
-    return Image.asset(medal,height: FontSize.size100,width: FontSize.size100,);
+    return Image.asset(
+      medal,
+      height: FontSize.size100,
+      width: FontSize.size100,
+    );
   }
 
   postsFollows() {
     return Padding(
-      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size10,top: FontSize.size20),
+      padding: EdgeInsets.only(
+          left: FontSize.size20, right: FontSize.size10, top: FontSize.size20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           post(1),
-          Padding(padding: EdgeInsets.only(left:FontSize.size10),
-          child:  post(2),),
+          Padding(
+            padding: EdgeInsets.only(left: FontSize.size10),
+            child: post(2),
+          ),
           post(3),
         ],
       ),
@@ -203,18 +218,35 @@ class _ProfileState extends State<Profile> {
   post(int i) {
     return Column(
       children: [
-        Text('989',style: AppConfig.mediumFontStyle,),
-        Text(i==1?posts:i==2?followers:followingText,style: AppConfig.lightGreyStyle,),
+        Text(
+          '989',
+          style: AppConfig.mediumFontStyle,
+        ),
+        Text(
+          i == 1
+              ? posts
+              : i == 2
+                  ? followers
+                  : followingText,
+          style: AppConfig.lightGreyStyle,
+        ),
       ],
     );
   }
+
   tile(int index, ProfileNotifier profileNotifier) {
     return Stack(
       children: [
-      Positioned.fill(child:   Image.asset('images/img1.png',
-        height:index==0?200:300,fit: BoxFit.cover,)),
-          Padding(padding: EdgeInsets.only(top:index==0?120:210),
-          child: heartIcon(profileNotifier),)
+        Positioned.fill(
+            child: Image.asset(
+          'images/img1.png',
+          height: index == 0 ? 200 : 300,
+          fit: BoxFit.cover,
+        )),
+        Padding(
+          padding: EdgeInsets.only(top: index == 0 ? 120 : 210),
+          child: heartIcon(profileNotifier),
+        )
       ],
     );
   }
@@ -224,18 +256,29 @@ class _ProfileState extends State<Profile> {
       children: [
         Center(
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               profileNotifier.likeClicked();
             },
-            child:profileNotifier.isLiked?
-            Icon(Icons.favorite_border,color: blackBorder,size: FontSize.size24,):
-            Icon(Icons.favorite,color: red,size: FontSize.size24,),
+            child: profileNotifier.isLiked
+                ? Icon(
+                    Icons.favorite_border,
+                    color: blackBorder,
+                    size: FontSize.size24,
+                  )
+                : Icon(
+                    Icons.favorite,
+                    color: red,
+                    size: FontSize.size24,
+                  ),
           ),
         ),
         Padding(
-          padding:  EdgeInsets.only(top:FontSize.size8,
-              bottom: FontSize.size20),
-          child: Text('71k',style: AppConfig.smallFontStyle,),
+          padding:
+              EdgeInsets.only(top: FontSize.size8, bottom: FontSize.size20),
+          child: Text(
+            '71k',
+            style: AppConfig.smallFontStyle,
+          ),
         ),
       ],
     );
