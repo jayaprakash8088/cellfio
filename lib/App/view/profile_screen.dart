@@ -148,7 +148,7 @@ class _ProfileState extends State<Profile> {
         crossAxisCount: 2,
         mainAxisSpacing: 4,crossAxisSpacing: 4,
         itemCount: 14,
-        physics: const ScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return tile(
              index,
