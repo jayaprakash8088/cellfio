@@ -1,5 +1,9 @@
+import 'package:cellfio/App/utils/app_color.dart';
+import 'package:cellfio/App/utils/font_size.dart';
 import 'package:cellfio/App/view/profile_screen.dart';
+import 'package:cellfio/App/viewModel/profile_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProfileView extends StatefulWidget {
   ProfileView() : super();

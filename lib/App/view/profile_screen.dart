@@ -142,26 +142,24 @@ class _ProfileState extends State<Profile> {
   }
 // gallery view
   galleryView(ProfileNotifier profileNotifier) {
-    return SizedBox(
-      height:500.0,
-      child: MasonryGridView.count(
-        crossAxisCount: 2,
-        mainAxisSpacing: 4,crossAxisSpacing: 4,
-        itemCount: 14,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return tile(
-             index,
-             profileNotifier
-          );
-        },
-      ),
+    return MasonryGridView.count(
+      crossAxisCount: 2,
+      mainAxisSpacing: 4,crossAxisSpacing: 4,
+      itemCount: 14,
+      shrinkWrap: true,
+      physics: const ScrollPhysics(),
+      itemBuilder: (context, index) {
+        return tile(
+           index,
+           profileNotifier
+        );
+      },
     );
   }
 
   reward() {
     return Padding(
-      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size20),
+      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -184,17 +182,18 @@ class _ProfileState extends State<Profile> {
   }
 
   batchIcon() {
-    return Image.asset(medal);
+    return Image.asset(medal,height: FontSize.size100,width: FontSize.size100,);
   }
 
   postsFollows() {
     return Padding(
-      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size20,top: FontSize.size20),
+      padding:  EdgeInsets.only(left:FontSize.size20,right: FontSize.size10,top: FontSize.size20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           post(1),
-          post(2),
+          Padding(padding: EdgeInsets.only(left:FontSize.size10),
+          child:  post(2),),
           post(3),
         ],
       ),
@@ -204,7 +203,7 @@ class _ProfileState extends State<Profile> {
   post(int i) {
     return Column(
       children: [
-        Text('99',style: AppConfig.mediumFontStyle,),
+        Text('989',style: AppConfig.mediumFontStyle,),
         Text(i==1?posts:i==2?followers:followingText,style: AppConfig.lightGreyStyle,),
       ],
     );
